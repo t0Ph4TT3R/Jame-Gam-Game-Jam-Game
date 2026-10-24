@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dm8ffv2uy8kjq"]
+
+[ext_resource type="Script" uid="uid://oeqpc586kj4a" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_6t5aa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4pdhp"]
+size = Vector2(120, 159)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e2jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t5aa")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=654473860]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=700916468]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_4pdhp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=957550360]
+position = Vector2(0, 21.499992)
+scale = Vector2(1, 1.3359374)
+sprite_frames = SubResource("SpriteFrames_4e2jx")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=756977915]
+wait_time = 0.15
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=355902572]
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

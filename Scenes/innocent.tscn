@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bubjjq2bxyoc4"]
+
+[ext_resource type="Script" uid="uid://dgybgfbjlaxks" path="res://Scripts/innocent.gd" id="1_2u4cs"]
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_57aey"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pdhp"]
+radius = 63.126858
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e2jx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_57aey")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Innocent" type="RigidBody2D" unique_id=279271102]
+script = ExtResource("1_2u4cs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745963309]
+shape = SubResource("CircleShape2D_4pdhp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1576272392]
+rotation = -3.139821
+sprite_frames = SubResource("SpriteFrames_4e2jx")
