@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dskdc26drvml6"]
+
+[ext_resource type="Script" uid="uid://54adfnq6u5ye" path="res://Scripts/main_menu.gd" id="1_y6j0b"]
+
+[node name="mainMenu" type="Node2D" unique_id=1797188971]
+script = ExtResource("1_y6j0b")
+
+[node name="Labels" type="Control" parent="." unique_id=418834833]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Labels" unique_id=1348040482]
+z_index = 1
+layout_mode = 0
+offset_left = 180.0
+offset_top = 105.0
+offset_right = 2175.0
+offset_bottom = 624.0
+theme_override_font_sizes/font_size = 380
+text = "Bodyguard"
+
+[node name="Start" type="Label" parent="Labels" unique_id=573623284]
+z_index = 1
+layout_mode = 0
+offset_left = 510.0
+offset_top = 778.0
+offset_right = 1816.0
+offset_bottom = 970.0
+theme_override_font_sizes/font_size = 140
+text = "Press Space to Start"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1338925633]
+offset_left = -36.0
+offset_top = -17.0
+offset_right = 2321.0
+offset_bottom = 1306.0
+color = Color(0.9825701, 0.43003476, 0.32027578, 1)
