@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="PlayerControls" format=3 uid="uid://com5dvtln4jik"]
-
-[ext_resource type="Script" uid="uid://cacd35pf1drri" path="res://Scripts/projectile.gd" id="1_bo8me"]
-
-[resource]
-script = ExtResource("1_bo8me")

@@ -9,6 +9,9 @@ var air_dash = false
 
 var facing_right = true
 
+func player():
+	pass
+
 func _process(delta: float) -> void:
 	if $DashTimer.is_stopped():
 		$DashTimer.wait_time = 0.2

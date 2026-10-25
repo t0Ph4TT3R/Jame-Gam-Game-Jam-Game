@@ -1,32 +1,36 @@
 [gd_scene format=3 uid="uid://drlb38b65cenq"]
 
-[ext_resource type="Script" uid="uid://c4371bhjhoa4c" path="res://Scripts/Missle.gd" id="1_yr2qt"]
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_tl4hk"]
+[ext_resource type="Script" uid="uid://cacd35pf1drri" path="res://Scripts/projectile.gd" id="1_f8cdk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pdhp"]
-radius = 11.0
-height = 120.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl4hk"]
+radius = 7.0
+height = 201.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4e2jx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_tl4hk")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yr2qt"]
+height = 220.0
 
-[node name="Missle" type="Area2D" unique_id=1991523110]
-script = ExtResource("1_yr2qt")
+[node name="Projectile" type="AnimatableBody2D" unique_id=1870264944]
+script = ExtResource("1_f8cdk")
+move_direction = "right"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1637700093]
-shape = SubResource("CapsuleShape2D_4pdhp")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602614067]
+position = Vector2(-436.5, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tl4hk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=535227464]
-position = Vector2(0.5, 0)
-scale = Vector2(0.1640625, 1)
-sprite_frames = SubResource("SpriteFrames_4e2jx")
+[node name="ColorRect" type="ColorRect" parent="." unique_id=655147053]
+offset_left = -544.0
+offset_top = -12.0
+offset_right = -330.0
+offset_bottom = 10.0
+color = Color(0.8609641, 0.14036027, 0.5172955, 1)
+metadata/_edit_use_anchors_ = true
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="Area2D" type="Area2D" parent="." unique_id=2121985631]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=949819609]
+position = Vector2(-436, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_yr2qt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

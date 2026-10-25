@@ -1,7 +1,12 @@
-class_name Projectile extends AnimatableBody2D
+class_name Projectiles extends Node2D
 
 @export var danger_level: int = 5
-@export var move_direction: String 
+@export var move_direction: String
+@export var missileID: int   
+@export var gone := false
+
+#var missile = preload("res://Scenes/projectile.tscn").instance()
+
 var speed = 400
 var firstime = true
 #@export var something := ""
@@ -18,3 +23,19 @@ func _physics_process(delta: float) -> void:
 	else: 
 		position.y -= delta * speed
 	
+
+
+
+	
+		
+	
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.has_method("innocent"):
+		global.game_over = true
+	if body.has_method("player"):
+		print("im ded")
+		global.missile.gone = true 
+		remove_child(global.missile)
+		add_child(global.missile)
