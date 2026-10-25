@@ -12,9 +12,9 @@ var facing_right = true
 func _process(delta: float) -> void:
 	if $DashTimer.is_stopped():
 		$DashTimer.wait_time = 0.2
-	if Input.is_action_just_pressed("move_left"):
+	if Input.is_action_pressed("move_left"):
 		facing_right = false
-	else:
+	elif Input.is_action_pressed("move_right"):
 		facing_right = true
 		
 func _physics_process(delta: float) -> void:
@@ -40,10 +40,12 @@ func _physics_process(delta: float) -> void:
 		speed = normal_speed * 7
 		#$DashTimer.wait_time = .15
 		$DashTimer.start()
-		if facing_right:
-			$AnimationPlayer.play("dive")
-		elif facing_right == false:
+		
+		if facing_right == false:
 			$AnimationPlayer.play("dive_left")
+		elif facing_right == true:
+			$AnimationPlayer.play("dive")
+		
 		if not is_on_floor():
 			air_dash = true
 	elif Input.is_action_just_pressed("dash") and air_dash == false:
