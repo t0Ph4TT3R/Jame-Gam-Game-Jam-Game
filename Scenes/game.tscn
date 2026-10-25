@@ -4,7 +4,12 @@
 [ext_resource type="Script" uid="uid://c6riitl5p78fi" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dm8ffv2uy8kjq" path="res://Scenes/player.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bubjjq2bxyoc4" path="res://Scenes/innocent.tscn" id="4_3dryh"]
+
 [ext_resource type="Script" uid="uid://54adfnq6u5ye" path="res://Scripts/main_menu.gd" id="5_wowpa"]
+
+[ext_resource type="Script" uid="uid://cacd35pf1drri" path="res://Scripts/projectile.gd" id="5_wowpa"]
+[ext_resource type="Script" uid="uid://c0g11wxoc5kvh" path="res://Scenes/collision1.gd" id="6_i6g32"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("1_qxrlw")
@@ -78,6 +83,9 @@ texture = ExtResource("1_qxrlw")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3dryh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhrp"]
+size = Vector2(183.25, 12.5)
+
 [node name="Game" type="Node" unique_id=1530426008]
 script = ExtResource("1_wrm1d")
 
@@ -98,7 +106,9 @@ scale = Vector2(0.4615992, 1.95362)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Innocent" parent="." unique_id=279271102 instance=ExtResource("4_3dryh")]
+unique_name_in_owner = true
 position = Vector2(-183, 12)
+
 
 [node name="textTimer" type="Timer" parent="." unique_id=1413627475]
 
@@ -184,3 +194,27 @@ offset_right = 2507.0
 offset_bottom = 1347.0
 scale = Vector2(0.83371055, 1.0672204)
 color = Color(0.9825701, 0.43003476, 0.32027578, 1)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=420333838]
+script = ExtResource("5_wowpa")
+move_direction = "right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=641698866]
+position = Vector2(-436, 1)
+shape = SubResource("RectangleShape2D_eqhrp")
+
+[node name="ColorRect" type="ColorRect" parent="AnimatableBody2D" unique_id=1804552609]
+offset_left = -544.0
+offset_top = -12.0
+offset_right = -330.0
+offset_bottom = 10.0
+color = Color(0.8609641, 0.14036027, 0.5172955, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D" unique_id=79379373]
+script = ExtResource("6_i6g32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D" unique_id=75612527]
+position = Vector2(-436, 1)
+shape = SubResource("RectangleShape2D_eqhrp")
+
