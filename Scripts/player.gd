@@ -7,6 +7,16 @@ const JUMP_VELOCITY = -900.0
 
 var air_dash = false
 
+var facing_right = true
+
+func _process(delta: float) -> void:
+	if $DashTimer.is_stopped():
+		$DashTimer.wait_time = 0.2
+	if Input.is_action_just_pressed("move_left"):
+		facing_right = false
+	else:
+		facing_right = true
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -30,7 +40,10 @@ func _physics_process(delta: float) -> void:
 		speed = normal_speed * 7
 		#$DashTimer.wait_time = .15
 		$DashTimer.start()
-		$AnimatedSprite2D.play("dive")
+		if facing_right:
+			$AnimationPlayer.play("dive")
+		elif facing_right == false:
+			$AnimationPlayer.play("dive_left")
 		if not is_on_floor():
 			air_dash = true
 	elif Input.is_action_just_pressed("dash") and air_dash == false:
@@ -43,9 +56,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
-func _process(delta: float) -> void:
-	if $DashTimer.is_stopped():
-		$DashTimer.wait_time = 0.2
+
 
 func _on_dash_timer_timeout() -> void:
 	speed = normal_speed
