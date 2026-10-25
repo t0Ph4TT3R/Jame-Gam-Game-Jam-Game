@@ -15,12 +15,15 @@ func player():
 	pass
 
 func _process(delta: float) -> void:
+		 
 	if $DashTimer.is_stopped():
 		$DashTimer.wait_time = 0.2
 	if Input.is_action_pressed("move_left"):
 		facing_right = false
+		$Bodyguard.flip_h = true
 	elif Input.is_action_pressed("move_right"):
 		facing_right = true
+		$Bodyguard.flip_h = false
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
