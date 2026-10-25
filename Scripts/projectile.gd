@@ -32,10 +32,12 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("innocent"):
-		global.game_over = true
 	if body.has_method("player"):
 		print("im ded")
-		global.missile.gone = true 
-		remove_child(global.missile)
-		add_child(global.missile)
+		#global.missile.gone = true 
+		queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.has_method("innocent"):
+		global.game_over = true

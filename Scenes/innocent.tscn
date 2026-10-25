@@ -1,26 +1,16 @@
 [gd_scene format=3 uid="uid://bubjjq2bxyoc4"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://Assets/icon.svg" id="2_57aey"]
+[ext_resource type="Texture2D" uid="uid://ca0toqkol55qd" path="res://Assets/bodyguardsit.png" id="1_iqy6y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pdhp"]
 radius = 63.126858
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4e2jx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_57aey")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Innocent" type="CharacterBody2D" unique_id=1761747205]
+[node name="Innocent" type="Area2D" unique_id=1046534098]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745963309]
 shape = SubResource("CircleShape2D_4pdhp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1576272392]
-rotation = -3.139821
-sprite_frames = SubResource("SpriteFrames_4e2jx")
+[node name="Bodyguardsit" type="Sprite2D" parent="." unique_id=2143385525]
+position = Vector2(3, -10)
+scale = Vector2(8, 8)
+texture = ExtResource("1_iqy6y")

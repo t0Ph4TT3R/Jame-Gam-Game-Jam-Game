@@ -45,12 +45,12 @@ anchor_mode = 0
 zoom = Vector2(0.6, 0.6)
 
 [node name="Firestart" type="Sprite2D" parent="." unique_id=1810668260]
-position = Vector2(-391, -727)
+position = Vector2(-373.99997, -731)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("2_1ehe0")
 centered = false
 
 [node name="Start" type="Sprite2D" parent="." unique_id=1291040]
-position = Vector2(988, 510)
+position = Vector2(1046, 493)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("3_ce3w2")
