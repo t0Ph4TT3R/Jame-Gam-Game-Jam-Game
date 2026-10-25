@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const normal_speed = 600.0
 var speed = normal_speed 
-const JUMP_VELOCITY = -900.0
+const JUMP_VELOCITY = -1000.0
 
 var air_dash = false
 

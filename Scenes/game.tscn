@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c6riitl5p78fi" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dm8ffv2uy8kjq" path="res://Scenes/player.tscn" id="2_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bubjjq2bxyoc4" path="res://Scenes/innocent.tscn" id="4_3dryh"]
+[ext_resource type="Script" uid="uid://54adfnq6u5ye" path="res://Scripts/main_menu.gd" id="5_wowpa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dryh"]
 texture = ExtResource("1_qxrlw")
@@ -93,7 +94,93 @@ position = Vector2(108, -119)
 
 [node name="Camera2D2" type="Camera2D" parent="Player" unique_id=745213851]
 position = Vector2(3, -346)
+scale = Vector2(0.4615992, 1.95362)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Innocent" parent="." unique_id=279271102 instance=ExtResource("4_3dryh")]
 position = Vector2(-183, 12)
+
+[node name="textTimer" type="Timer" parent="." unique_id=1413627475]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=435129684]
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=696226745]
+
+[node name="playingMenu" type="Node2D" parent="SubViewport" unique_id=1797188971]
+script = ExtResource("5_wowpa")
+
+[node name="Labels" type="Control" parent="SubViewport/playingMenu" unique_id=418834833]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=1348040482]
+z_index = 1
+layout_mode = 0
+offset_left = 881.99994
+offset_top = 63.0
+offset_right = 2877.0
+offset_bottom = 582.0
+scale = Vector2(0.62687635, 0.6897425)
+theme_override_font_sizes/font_size = 200
+text = "Options"
+
+[node name="Close" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=573623284]
+z_index = 1
+layout_mode = 0
+offset_left = 971.0
+offset_top = 1170.0
+offset_right = 2277.0
+offset_bottom = 1362.0
+theme_override_font_sizes/font_size = 120
+text = "Close"
+
+[node name="Upgrade1" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=2081361802]
+z_index = 1
+layout_mode = 0
+offset_left = 318.0
+offset_top = 457.0
+offset_right = 1624.0
+offset_bottom = 649.0
+theme_override_font_sizes/font_size = 120
+text = "Upgrade 1"
+
+[node name="Upgrade2" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=1504021731]
+z_index = 1
+layout_mode = 0
+offset_left = 325.0
+offset_top = 841.0
+offset_right = 1631.0
+offset_bottom = 1033.0
+theme_override_font_sizes/font_size = 120
+text = "Upgrade 2"
+
+[node name="buyUpgrade1" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=278230017]
+layout_mode = 0
+offset_left = 1512.0
+offset_top = 485.0
+offset_right = 1932.0
+offset_bottom = 704.0
+scale = Vector2(0.7432602, 0.60152036)
+theme_override_font_sizes/font_size = 160
+text = "$asdf"
+
+[node name="buyUpgrade2" type="Label" parent="SubViewport/playingMenu/Labels" unique_id=843308161]
+layout_mode = 0
+offset_left = 1536.9999
+offset_top = 873.0
+offset_right = 1956.9999
+offset_bottom = 1092.0
+scale = Vector2(0.7432602, 0.60152036)
+theme_override_font_sizes/font_size = 160
+text = "$asdf"
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport/playingMenu" unique_id=1338925633]
+modulate = Color(1, 1, 1, 0.21960784)
+offset_left = 149.99995
+offset_top = 24.0
+offset_right = 2507.0
+offset_bottom = 1347.0
+scale = Vector2(0.83371055, 1.0672204)
+color = Color(0.9825701, 0.43003476, 0.32027578, 1)
