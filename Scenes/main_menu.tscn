@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://p40oob450nwb"]
 
 [ext_resource type="Script" uid="uid://54adfnq6u5ye" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dauuu0d6mwnrq" path="res://Assets/firestart.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://j1gcymptoxfx" path="res://Assets/start.png" id="3_ce3w2"]
 
 [node name="mainMenu" type="Node2D" unique_id=1797188971]
 script = ExtResource("1_28flt")
@@ -12,6 +14,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Title" type="Label" parent="Labels" unique_id=1348040482]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 194.0
@@ -22,6 +25,7 @@ theme_override_font_sizes/font_size = 280
 text = "Bodyguard"
 
 [node name="Start" type="Label" parent="Labels" unique_id=573623284]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 349.0
@@ -39,3 +43,14 @@ color = Color(0.9825701, 0.43003476, 0.32027578, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1554382186]
 anchor_mode = 0
 zoom = Vector2(0.6, 0.6)
+
+[node name="Firestart" type="Sprite2D" parent="." unique_id=1810668260]
+position = Vector2(-391, -727)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("2_1ehe0")
+centered = false
+
+[node name="Start" type="Sprite2D" parent="." unique_id=1291040]
+position = Vector2(988, 510)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_ce3w2")
