@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -1000.0
 var air_dash = false
 
 var facing_right = true
+@onready var player2: CharacterBody2D = %Player
+
 
 func player():
 	pass
@@ -58,6 +60,13 @@ func _physics_process(delta: float) -> void:
 			air_dash = true
 	if is_on_floor():
 		air_dash = false
+		
+	var player_x = player2.global_position.x
+	var player_y = player2.global_position.y
+	if player_x < -3000 or player_x > 3500:
+		global.game_over = true
+	elif player_y > 1000 or player_y < -1917:
+		global.game_over = true
 		
 	move_and_slide()
 

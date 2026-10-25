@@ -1,4 +1,4 @@
-class_name Projectiles extends Node2D
+class_name Projectiles extends AnimatableBody2D
 
 @export var danger_level: int = 5
 @export var move_direction: String
@@ -36,8 +36,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		print("im ded")
 		#global.missile.gone = true 
 		queue_free()
+		global.score +=1
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.has_method("innocent"):
 		global.game_over = true
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Innocent":
+		global.game_over = true
+		print(global.game_over)
+	else:
+		global.score+=1

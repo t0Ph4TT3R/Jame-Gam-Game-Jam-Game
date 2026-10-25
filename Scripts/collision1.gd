@@ -10,6 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_area_entered(body) -> void:
-	if body.has_method("innocent"):
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Innocent":
 		global.game_over = true
+		print(global.game_over)

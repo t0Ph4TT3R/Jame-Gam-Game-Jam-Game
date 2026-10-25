@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drlb38b65cenq"]
 
 [ext_resource type="Script" uid="uid://cacd35pf1drri" path="res://Scripts/projectile.gd" id="1_f8cdk"]
+[ext_resource type="Script" uid="uid://cg4crd0o451d0" path="res://Scripts/collision1.gd" id="2_tl4hk"]
 [ext_resource type="Texture2D" uid="uid://8xuioc65ybex" path="res://Assets/rocket.png" id="2_yr2qt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tl4hk"]
@@ -11,7 +12,7 @@ height = 201.0
 radius = 36.0
 height = 220.0
 
-[node name="Projectile" type="AnimatableBody2D" unique_id=1870264944]
+[node name="Projectile" type="AnimatableBody2D" unique_id=365217838]
 script = ExtResource("1_f8cdk")
 move_direction = "right"
 
@@ -21,6 +22,7 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_tl4hk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2121985631]
+script = ExtResource("2_tl4hk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=949819609]
 position = Vector2(-436, -1)
@@ -34,4 +36,5 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_yr2qt")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

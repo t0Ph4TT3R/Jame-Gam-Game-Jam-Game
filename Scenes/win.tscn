@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyjfx1b6k6dpi"]
+
+[ext_resource type="Texture2D" uid="uid://dauuu0d6mwnrq" path="res://Assets/firestart.png" id="1_j84t1"]
+
+[node name="Win" type="Node2D" unique_id=947916016]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1725105528]
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 1928.0
+offset_bottom = 1085.0
+color = Color(0.9825701, 0.43003476, 0.32027578, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Firestart" type="Sprite2D" parent="ColorRect" unique_id=522940125]
+position = Vector2(-378, -730.00006)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("1_j84t1")
+centered = false
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1764855340]
+offset_left = 542.0
+offset_top = 230.0
+offset_right = 1448.0
+offset_bottom = 561.0
+theme_override_font_sizes/font_size = 100
+text = "		 You Win!
+ Reload to Restart"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=558044965]
+anchor_mode = 0
+zoom = Vector2(0.6, 0.6)

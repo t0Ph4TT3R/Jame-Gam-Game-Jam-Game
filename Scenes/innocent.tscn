@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pdhp"]
 radius = 63.126858
 
-[node name="Innocent" type="Area2D" unique_id=1046534098]
+[node name="Innocent" type="CharacterBody2D" unique_id=19934699]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1745963309]
 shape = SubResource("CircleShape2D_4pdhp")
